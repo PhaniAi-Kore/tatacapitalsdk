@@ -21,6 +21,13 @@
 			function assertion(options, callback) {
                 // options.assertion =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODYwNDY1NDkzMjksImV4cCI6MTQ4NjEzMjk0OTMyOSwiYXVkIjoiaHR0cHM6Ly9pZHByb3h5LXFhLmtvcmUuY29tL2F1dGhvcml6ZSIsImlzcyI6ImNzLTVkZjZiMmNiLWVhYTUtNWJkYS05NTkyLTcwNjlmNzRmZjZhNSIsInN1YiI6InZlbmthdGFwaGFuaS5haWxhdmFyYXB1QGtvcmUuY29tIiwiaXNBbm9ueW1vdXMiOnRydWV9.6YJnPfUDsxKIGRYhqlyNtD_dvcz9sWQkAwyomv8HVA0";
 		//				callback(null, options);
+				var jsonData = {
+						"clientId": botOptions.clientId,
+						"clientSecret": "",
+						"identity": botOptions.userIdentity,
+						"aud": "",
+						"isAnonymous": false
+					};
 				// Client has to fill the claims and call the callback.
 				$.ajax({
 					url: "http://botservices.kore.net/botservices/tatacapital/api/1.0/jwt",
@@ -29,8 +36,7 @@
 						Authorization: botOptions.bearer
 					},*/
 					dataType: 'json',
-					clientId: "cs-5df6b2cb-eaa5-5bda-9592-7069f74ff6a5",
-					data: botOptions.data,
+					data: jsonData,
 					success: function (data) {
 						options.assertion = data.jwt;
 						callback(null, options);
