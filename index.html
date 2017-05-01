@@ -25,10 +25,11 @@
 				$.ajax({
 					url: "http://botservices.kore.net/botservices/tatacapital/api/1.0/jwt",
 					type: 'post',
-					headers: {
+					/*headers: {
 						Authorization: botOptions.bearer
-					},
+					},*/
 					dataType: 'json',
+					clientId: "cs-5df6b2cb-eaa5-5bda-9592-7069f74ff6a5",
 					data: botOptions.data,
 					success: function (data) {
 						options.assertion = data.jwt;
