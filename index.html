@@ -19,11 +19,11 @@
 		<script type="text/javascript">
 		$(document).on("ready",function(){
 			function assertion(options, callback) {
-                 options.assertion =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODYwNDY1NDkzMjksImV4cCI6MTQ4NjEzMjk0OTMyOSwiYXVkIjoiaHR0cHM6Ly9pZHByb3h5LXFhLmtvcmUuY29tL2F1dGhvcml6ZSIsImlzcyI6ImNzLTVkZjZiMmNiLWVhYTUtNWJkYS05NTkyLTcwNjlmNzRmZjZhNSIsInN1YiI6InZlbmthdGFwaGFuaS5haWxhdmFyYXB1QGtvcmUuY29tIiwiaXNBbm9ueW1vdXMiOnRydWV9.6YJnPfUDsxKIGRYhqlyNtD_dvcz9sWQkAwyomv8HVA0";
-						callback(null, options);
+                // options.assertion =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE0ODYwNDY1NDkzMjksImV4cCI6MTQ4NjEzMjk0OTMyOSwiYXVkIjoiaHR0cHM6Ly9pZHByb3h5LXFhLmtvcmUuY29tL2F1dGhvcml6ZSIsImlzcyI6ImNzLTVkZjZiMmNiLWVhYTUtNWJkYS05NTkyLTcwNjlmNzRmZjZhNSIsInN1YiI6InZlbmthdGFwaGFuaS5haWxhdmFyYXB1QGtvcmUuY29tIiwiaXNBbm9ueW1vdXMiOnRydWV9.6YJnPfUDsxKIGRYhqlyNtD_dvcz9sWQkAwyomv8HVA0";
+		//				callback(null, options);
 				// Client has to fill the claims and call the callback.
-				/*$.ajax({
-					url: botOptions.koreAPIUrl+"users/sts",
+				$.ajax({
+					url: "http://botservices.kore.net/botservices/tatacapital/api/1.0/jwt",
 					type: 'post',
 					headers: {
 						Authorization: botOptions.bearer
@@ -31,15 +31,15 @@
 					dataType: 'json',
 					data: botOptions.data,
 					success: function (data) {
-						options.assertion = data.jwt
+						options.assertion = data.jwt;
 						callback(null, options);
 					}
-				}) commented as this will be generated via API*/ 
+				}) /*commented as this will be generated via API*/ 
 			}
 
 			var botOptions = {};
 			botOptions.logLevel = 'debug';
-			botOptions.koreAPIUrl = "https://devbots.kore.net/api/"; 
+			botOptions.koreAPIUrl = "https://dev-bots.kore.ai/api/"; 
 			//botOptions.bearer = "bearer iZrs_PxJ6Jm7U0AlJGqdedqSJQnLrFOehRN83mcVz3GtFwiSg9uplgZBVPOiihtJ"; commented by sunitha
 			botOptions.assertionFn = assertion;
 			/*
@@ -54,7 +54,7 @@
 			botOptions.koreAnonymousFn = koreAnonymousFn;
 			botOptions.clientId   = "cs-5df6b2cb-eaa5-5bda-9592-7069f74ff6a5"; // secure client-id
 			
-			botOptions.botInfo = {name:"TATA CAPITAL Demo","_id":"st-7f6b503d-4883-53d1-9f43-02dfab5a6ef1"}; // bot name is case sensitive
+			botOptions.botInfo = {name:"TATA CAPITAL Personal Loan","_id":"st-65eabdd4-0fb3-5433-86cc-ef7a8c801e9f"}; // bot name is case sensitive
 			
 			var chatConfig={
 				botOptions:botOptions,
